@@ -17,6 +17,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
   id: string | null = null;
   routeSubsciption?: Subscription;
   updateBlogPostSubsciption?: Subscription;
+  deleteBlogPostSubsciption?: Subscription;
   getBlogPostSubsciption?: Subscription;
   model?: BlogPost;
   categories$?: Observable<Category[]>;
@@ -31,7 +32,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
 
   onFormSubmit(): void {
     // convert this model to request obj
-    if(this.model && this.id){
+    if (this.model && this.id) {
       var updateBlogPost: UpdateBlogPost = {
         author: this.model.author,
         content: this.model.content,
@@ -45,11 +46,11 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
       };
 
       this.updateBlogPostSubsciption = this.blogPostService.updateBlogPost(this.id, updateBlogPost)
-      .subscribe({
-        next: (response) => {
-          this.router.navigateByUrl('/admin/blogposts');
-        }
-      })
+        .subscribe({
+          next: (response) => {
+            this.router.navigateByUrl('/admin/blogposts');
+          }
+        })
     }
   }
 
@@ -74,10 +75,23 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
     })
   }
 
+  onDelete(): void {
+    if(this.id){
+      //call service and delete blogpost
+      this.deleteBlogPostSubsciption = this.blogPostService.deleteBlogPost(this.id)
+      .subscribe({
+        next: (response) => {
+          this.router.navigateByUrl('/admin/blogposts');
+        }
+      });
+    }
+  }
+
   ngOnDestroy(): void {
     this.routeSubsciption?.unsubscribe();
     this.updateBlogPostSubsciption?.unsubscribe();
     this.getBlogPostSubsciption?.unsubscribe();
+    this.deleteBlogPostSubsciption?.unsubscribe();
   }
 
 }

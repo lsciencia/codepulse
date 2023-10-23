@@ -202,5 +202,30 @@ namespace CodePulse.API.Controllers
 
             return  Ok(response);
         }
+
+        // DELETE: {apibaseurl}/api/blogposts/{id}
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteBlogPost([FromRoute] Guid id)
+        {
+            var deletedBlogPost = await blogPostRepository.DeleteAsync(id);
+            if (deletedBlogPost == null) {  return NotFound(); }
+
+            // convert domain model to dto
+            var response = new BlogPostDTO
+            {
+                Id = deletedBlogPost.Id,
+                Title = deletedBlogPost.Title,
+                Author = deletedBlogPost.Author,
+                Content = deletedBlogPost.Content,
+                FeaturedImageUrl = deletedBlogPost.FeaturedImageUrl,
+                PublishedDate = deletedBlogPost.PublishedDate,
+                ShortDescription = deletedBlogPost.ShortDescription,
+                UrlHandle = deletedBlogPost.UrlHandle,
+                IsVisible = deletedBlogPost.IsVisible
+            };
+
+            return Ok(response);
+        }
     }
 }
