@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6QNOPY8+Z0mPAQ6bgvjBbQAAAAACAAAAAAAQZgAAAAEAACAAAAAmwUlujB1OyOs19OU+YGerNYa03t0ZQgynrjO3IwlK2QAAAAAOgAAAAAIAACAAAAB0EDIXcpZbk/nZBGb2XUJDnbg/zd4NgQCpiqrFJM93ooAAAAC98W5s7mjASFc3RcVdLnY9jiTGTL0MppK7MzHQYIHDYt7QfnZd23RWtpcmQGVu7LEAaAwdSnRVlmIik7+v/cqK4CSJMde/xRl5uuWuNvt26K+NVvWelzXiH/GhhCNKMXPP6aEan6gMM5CSyKIWavQhQx8GQB2KnYe+xaLX39UI2kAAAAC/4XdxzuhWJBYC6WL7LFo7iPcKrncZQJjsljg3czGPHlOtuyJoKHtd2sFtxKkGcSytz2UTbDGZIfoc4+BV+a81</EncryptedPassword>
+    <History>True|2023-11-01T17:55:51.3559672Z;True|2023-11-01T14:55:01.5515090-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="CodePulseConnectionString">
+      <Value>Data Source=codepulseapidbserversciencia.database.windows.net,1433%3bInitial Catalog=CodePulse.API_db%3bUser ID=sciencia%3bPassword=Vegeta12#</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="CodePulse.API.Data.ApplicationDbContext">
+      <Value>Data Source=codepulseapidbserversciencia.database.windows.net,1433%3bInitial Catalog=CodePulse.API_db%3bUser ID=sciencia%3bPassword=Vegeta12#</Value>
+    </EFMigrations>
+    <EFMigrations Include="CodePulse.API.Data.AuthDbContext">
+      <Value>Data Source=codepulseapidbserversciencia.database.windows.net,1433%3bInitial Catalog=CodePulse.API_db%3bUser ID=sciencia%3bPassword=Vegeta12#</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
